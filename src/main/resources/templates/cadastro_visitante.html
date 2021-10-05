@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" href="/css/portfolio.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <title>Cadastro de Visitantes</title>
+    </head>
+    <body>
+        <div th:insert="fragments/menu.html"></div>
+
+        <form th:object="${visitante}" th:action="@{/salvarVisitante}" method="post">
+
+            <label for="nome">Nome do Visitante:</label>
+            <input type="text" id="nome" name="nome" th:field="*{nomeVisitante}">
+
+            <br><br>
+
+            <label for="email">E-mail do Visitante:</label>
+            <input type="text" id="email" name="email" th:field="*{emailVisitante}">
+
+            <br><br>
+
+            <label for="telefone">Telefone do Visitante:</label>
+            <input type="text" id="telefone" name="telefone" th:field="*{telefone}">
+
+            <br><br>
+
+            <label>Deseja receber o Newsletter?:</label>
+            <input type="radio" value=1 id="sim" name="deseja_receber" th:field="*{desejaReceber}">
+            <label for="sim">Sim</label>
+            <input type="radio" value=0 id="nao" name="deseja_receber" th:field="*{desejaReceber}">
+            <label for="nao">Não</label>
+            <br><br>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </body>
+</html>
